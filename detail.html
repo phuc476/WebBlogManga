@@ -1,0 +1,24 @@
+<div id="detail"></div>
+
+<script>
+const id = new URLSearchParams(window.location.search).get("id");
+
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    const comic = data.comics.find(c => c.id === id);
+
+    const div = document.getElementById("detail");
+
+    div.innerHTML = `
+      <h1>${comic.title}</h1>
+      ${comic.chapters.map(ch => `
+        <p>
+          <a href="reader.html?comic=${comic.id}&chap=${ch.id}">
+            ${ch.title}
+          </a>
+        </p>
+      `).join("")}
+    `;
+  });
+</script>

@@ -1,0 +1,20 @@
+<div id="reader"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const comicId = params.get("comic");
+const chapId = params.get("chap");
+
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    const comic = data.comics.find(c => c.id === comicId);
+    const chap = comic.chapters.find(ch => ch.id === chapId);
+
+    const div = document.getElementById("reader");
+
+    chap.images.forEach(img => {
+      div.innerHTML += `<img src="${img}" width="100%">`;
+    });
+  });
+</script>

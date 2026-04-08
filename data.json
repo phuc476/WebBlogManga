@@ -1,0 +1,19 @@
+{
+  "comics": [
+    {
+      "id": "onepiece",
+      "title": "One Piece",
+      "cover": "images/onepiece/cover.jpg",
+      "chapters": [
+        {
+          "id": "chap1",
+          "title": "Chapter 1",
+          "images": [
+            "images/onepiece/chap1/1.jpg",
+            "images/onepiece/chap1/2.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

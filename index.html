@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Truyện Tranh</title>
+</head>
+<body>
+<h1> Web Truyện</h1>
+<div id="list"></div>
+
+<script>
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    const list = document.getElementById("list");
+
+    data.comics.forEach(c => {
+      list.innerHTML += `
+        <div>
+          <a href="detail.html?id=${c.id}">
+            <img src="${c.cover}" width="150">
+            <h3>${c.title}</h3>
+          </a>
+        </div>
+      `;
+    });
+  });
+</script>
+</body>
+</html>
